@@ -1,5 +1,7 @@
 package yun.hellospring.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import yun.hellospring.domain.Member;
 import yun.hellospring.repository.MemberRepository;
 import yun.hellospring.repository.MemoryMemberRepository;
@@ -7,10 +9,12 @@ import yun.hellospring.repository.MemoryMemberRepository;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MemberService {
 
     private final MemberRepository memberRepository;
 
+    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
