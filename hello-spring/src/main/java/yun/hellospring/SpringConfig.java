@@ -3,6 +3,7 @@ package yun.hellospring;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import yun.hellospring.repository.JdbcMemberRepository;
+import yun.hellospring.repository.JdbcTemplateMemberRepository;
 import yun.hellospring.repository.MemberRepository;
 import yun.hellospring.repository.MemoryMemberRepository;
 import yun.hellospring.service.MemberService;
@@ -26,6 +27,8 @@ public class SpringConfig {
 
     @Bean
     public MemberRepository memberRepository(){
-        return new JdbcMemberRepository(dataSource);
+        //return new MemoryMemberRepository();
+        //return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }

@@ -25,7 +25,6 @@ class MemberServiceIntegrationTest {
 
 
     @Test
-    @Commit
     void 회원가입() {
         /*test는 method이름을 한글로 해도됨*/
         //given
