@@ -18,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 @Transactional //db에 반영이 안됌
+
 class MemberServiceIntegrationTest {
 
     @Autowired MemberService memberService;
@@ -29,7 +30,7 @@ class MemberServiceIntegrationTest {
         /*test는 method이름을 한글로 해도됨*/
         //given
         Member member = new Member();
-        member.setName("HYE");
+        member.setName("YUN");
 
         //when
         Long saveId = memberService.join(member);
