@@ -3,8 +3,11 @@ package yun.hellospring;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import yun.hellospring.aop.TimeTraceAop;
 import yun.hellospring.repository.*;
 import yun.hellospring.service.MemberService;
+
+import java.sql.Time;
 
 /*Annotation 없이 직접 Spring Bean 등록*/
 @Configuration
@@ -17,6 +20,11 @@ public class SpringConfig {
         this.memberRepository = memberRepository;
     }
 
+//    @Bean
+//    public TimeTraceAop timeTraceAop(){
+//        return new TimeTraceAop();
+//    }
+//
     @Bean
     public MemberService memberService(){
         return new MemberService(memberRepository);
