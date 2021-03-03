@@ -71,6 +71,9 @@ class OwnerControllerTests {
 
 	@Test
 	public void getBean(){
+		// 이건 Bean 이 아님
+		//OwnerController ownerController = new OwnerController();
+		//이건 Bean 맞음
 		OwnerController bean = applicationContext.getBean(OwnerController.class);
 		assertThat(bean).isNotNull();
 	}
