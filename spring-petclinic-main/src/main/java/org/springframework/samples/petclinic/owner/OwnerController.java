@@ -44,23 +44,34 @@ class OwnerController {
 	@Autowired
 	private final OwnerRepository owners;
 
-	//이렇게 쓸일 없;;
-	//private final ApplicationContext applicationContext;
+	//과제 : petRepository 주입
+	//3)
+	//@Autowired
+	private PetRepository petRepository;
+
+	// 이렇게 쓸일 없;;
+	// private final ApplicationContext applicationContext;
 
 	private VisitRepository visits;
 
-	public OwnerController(OwnerRepository clinicService, VisitRepository visits) {
+	//2)
+//	public void setPetRepository(PetRepository petRepository) {
+//		this.petRepository = petRepository;
+//	}
+
+	public OwnerController(OwnerRepository clinicService, VisitRepository visits) { //1)PetRepository petRepository) {
 		this.owners = clinicService;
 		this.visits = visits;
-		//this.applicationContext = applicationContext;
+		//this.petRepository = petRepository;
+		// this.applicationContext = applicationContext;
 	}
 
-//	@GetMapping("/bean")
-//	@ResponseBody
-//	public String bean(){
-//		return "bean : " + applicationContext.getBean(OwnerRepository.class) + "\n"
-//			+ "owners: " + this.owners;
-//	}
+	// @GetMapping("/bean")
+	// @ResponseBody
+	// public String bean(){
+	// return "bean : " + applicationContext.getBean(OwnerRepository.class) + "\n"
+	// + "owners: " + this.owners;
+	// }
 
 	@InitBinder
 	public void setAllowedFields(WebDataBinder dataBinder) {
@@ -100,7 +111,7 @@ class OwnerController {
 		}
 
 		// find owners by last name
-		//Collection<Owner> results = this.owners.findByLastName(owner.getLastName());
+		// Collection<Owner> results = this.owners.findByLastName(owner.getLastName());
 		Collection<Owner> results = this.owners.findByFirstName(owner.getFirstName());
 		if (results.isEmpty()) {
 			// no owners found

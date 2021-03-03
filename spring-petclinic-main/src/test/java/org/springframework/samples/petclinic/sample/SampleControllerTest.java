@@ -21,16 +21,16 @@ class SampleControllerTest {
 	ApplicationContext applicationContext;
 
 	@Test
-	public void testDI(){
+	public void testDI() {
 		SampleController bean = applicationContext.getBean(SampleController.class);
 		assertThat(bean).isNotNull();
 	}
 
-//	@Test
-//	public void teestDoSomething(){
-//		SampleRepository sampleRepository = new SampleRepository();
-//		SampleController sampleController = new SampleController(sampleRepository);
-//		sampleController.doSomething();
-//	}
+	// @Test
+	// public void teestDoSomething(){
+	// SampleRepository sampleRepository = new SampleRepository();
+	// SampleController sampleController = new SampleController(sampleRepository);
+	// sampleController.doSomething();
+	// }
 
 }
