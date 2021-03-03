@@ -21,6 +21,7 @@ import org.springframework.samples.petclinic.visit.VisitRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
+import org.springframework.util.StopWatch;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -55,9 +56,10 @@ class OwnerController {
 	private VisitRepository visits;
 
 	//2)
-//	public void setPetRepository(PetRepository petRepository) {
-//		this.petRepository = petRepository;
-//	}
+	@Autowired
+	public void setPetRepository(PetRepository petRepository) {
+		this.petRepository = petRepository;
+	}
 
 	public OwnerController(OwnerRepository clinicService, VisitRepository visits) { //1)PetRepository petRepository) {
 		this.owners = clinicService;
@@ -80,8 +82,16 @@ class OwnerController {
 
 	@GetMapping("/owners/new")
 	public String initCreationForm(Map<String, Object> model) {
+		StopWatch stopwatch = new StopWatch();
+		stopwatch.start();
+
 		Owner owner = new Owner();
 		model.put("owner", owner);
+
+		stopwatch.stop();
+		stopwatch.prettyPrint();
+		//이런 코드없이 작동하도록 하는것이 AOP
+
 		return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
 	}
 
