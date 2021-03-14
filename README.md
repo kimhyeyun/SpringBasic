@@ -16,8 +16,9 @@
   2. 스프링 AOP가 Proxy 기반으로 동작한다는 것은, AOP를 적용을 원하는 기능을 수행하는 타켓 오브젝트 그 앞에 Proxy 오브젝트를 하나 더 세워 그 Proxy가 부가 기능을 수행하고 실제 오브젝트로의 호출까지 담당하는 것.
 
 - PSA : Portable Service Abstraction
-  1. 추상화 계층을 사용하여 어떤 기술을 숨기고 개발자에게 편의성을 제공해주는 것이 서비스 추상화\
-  2. 환경의 변화오 관계없이 일관된 방식의 기술 접그 환경으 제공하려는 추상호 구조
+  1. 추상화 계층을 사용하여 어떤 기술을 숨기고 개발자에게 편의성을 제공해주는 것이 서비스 추상화
+  2. 환경의 변화화 관계없이 일관된 방식의 기술 접그 환경으 제공하려는 추상화 구조
+      
       -> 웹 MVC와 관련된 service abstraction
       @Controller라는 Annotation을 사용하며 요청을 Mapping 할 수 있는 Controller 역할을 수행할 수 있음
       해당 클래스 안에 @GetMapping, @PostMapping 등과 같은 Annotation을 요청을 Mapping 함
