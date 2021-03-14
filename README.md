@@ -18,17 +18,14 @@
 - PSA : Portable Service Abstraction
   1. 추상화 계층을 사용하여 어떤 기술을 숨기고 개발자에게 편의성을 제공해주는 것이 서비스 추상화\
   2. 환경의 변화오 관계없이 일관된 방식의 기술 접그 환경으 제공하려는 추상호 구조
-  -> 웹 MVC와 관련된 service abstraction
+      -> 웹 MVC와 관련된 service abstraction
       @Controller라는 Annotation을 사용하며 요청을 Mapping 할 수 있는 Controller 역할을 수행할 수 있음
       해당 클래스 안에 @GetMapping, @PostMapping 등과 같은 Annotation을 요청을 Mapping 함
-      Mapping은 Mapping Annotation 안의 괄호에 해당하는 요청이 왔을 때 그 요청을 해당 메소가 처리하게끔 Mapping 
-      한다는 의미. Mapping에는 여러가지 많은 속성을 가지고 있는데 전부 요청과 관련된 속성을 해당 속성에 해당할 때만 해당 
-      요청을 처리하는 Controller 역할을 수행할 수 있음. 
-      PSA에서 Portable은 기술 스택을 여러가지 기술 스택으로 바꿀 수 있다는 뜻인데 PSA를 사용하면 코드르 일부만 변경하고 
-      완전 다른 기술로 동작이 가능. 예시) spring boot 기반의 application은 tomcat을 기반으로 동작
-  -> Spring Transaction Manager
-      1) Transaction : Database와 data를 주고 받을 때 A,B,C 쿼리가 있다면 A, B, C 쿼리가 모두 정상 동작했을 때 
-      작동함. (All or Nothing)
-      spring이 제공하는 추상화 계층에서는 @Transactional 이라는 Annotation을 사용하면 Annotation이 적용된 
-      Method는 Transaction 처리가 되기 때문에 try, catch, autocommit, execute오 같은 여러가지 처리없이 
-      Transaction을 적용가능.
+      Mapping은 Mapping Annotation 안의 괄호에 해당하는 요청이 왔을 때 그 요청을 해당 메소가 처리하게끔 Mapping 한다는 의미. 
+      Mapping에는 여러가지 많은 속성을 가지고 있는데 전부 요청과 관련된 속성을 해당 속성에 해당할 때만 해당 요청을 처리하는 Controller 역할을 수행할 수 있음. 
+      PSA에서 Portable은 기술 스택을 여러가지 기술 스택으로 바꿀 수 있다는 뜻인데 PSA를 사용하면 코드르 일부만 변경하고 완전 다른 기술로 동작이 가능. 
+      예시) spring boot 기반의 application은 tomcat을 기반으로 동작
+      -> Spring Transaction Manager
+          1) Transaction : Database와 data를 주고 받을 때 A,B,C 쿼리가 있다면 A, B, C 쿼리가 모두 정상 동작했을 때 작동함. (All or Nothing)
+         spring이 제공하는 추상화 계층에서는 @Transactional 이라는 Annotation을 사용하면 Annotation이 적용된 Method는 Transaction 처리가 되기 때문에 
+         try, catch, autocommit, execute오 같은 여러가지 처리없이 Transaction을 적용가능.
